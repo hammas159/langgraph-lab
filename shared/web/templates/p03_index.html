@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does the report admit a branch failed?</title>
+<link rel="stylesheet" href="/static/design.css">
+<style>
+  .branch { padding: 0.6rem 0.75rem; border-radius: var(--radius-sm);
+            background: var(--surface-2); border: 1px solid var(--border); }
+  .branch.empty { border-color: var(--red);
+                  background: color-mix(in srgb, var(--red) 8%, var(--surface-2)); }
+  .branch h4 { margin: 0 0 0.3rem; font-size: 0.85rem; text-transform: uppercase;
+               letter-spacing: 0.03em; color: var(--ink-3); }
+  .report { font-size: 0.9rem; line-height: 1.6; background: var(--surface-2);
+            border: 1px solid var(--border); border-radius: var(--radius-sm);
+            padding: 0.9rem 1rem; }
+  .report.complete-lie { border-color: var(--red);
+                          background: color-mix(in srgb, var(--red) 6%, var(--surface-2)); }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <h1>Does the report admit a branch failed?</h1>
+    <p>
+      Four analyst nodes run as real parallel branches, then a synthesis node combines their
+      findings into one report. Force one branch to fail &mdash; standing in for a timed-out
+      tool call &mdash; and see whether the report says so, or reads as complete regardless.
+    </p>
+  </div>
+</div>
+
+<div class="wrap stack">
+
+  {% if not server_up %}
+  <div class="card"><h3>ollama is not reachable</h3>
+    <p class="muted small">Start the server and reload.</p></div>
+  {% endif %}
+
+  <form method="post" action="/run" class="card">
+    <div class="grid grid-4">
+      <div class="field">
+        <label for="brief_id">Company</label>
+        <select name="brief_id" id="brief_id">
+          {% for b in briefs %}
+          <option value="{{ b.id }}" {% if chosen_brief == b.id %}selected{% endif %}>{{ b.company }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="fail_aspect">Force this branch to fail</label>
+        <select name="fail_aspect" id="fail_aspect">
+          <option value="" {% if chosen_fail == '' %}selected{% endif %}>none — all succeed</option>
+          {% for a in aspects %}
+          <option value="{{ a }}" {% if chosen_fail == a %}selected{% endif %}>{{ a }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="flag_gaps">Synthesis instruction</label>
+        <select name="flag_gaps" id="flag_gaps">
+          <option value="" {% if not chosen_flag %}selected{% endif %}>default — no gap check</option>
+          <option value="true" {% if chosen_flag %}selected{% endif %}>explicitly flag missing sections</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="model">Model</label>
+        <select name="model" id="model">
+          {% for m in models %}
+          <option value="{{ m }}" {% if chosen_model == m %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1rem">
+      <button type="submit">Run the fan-out</button>
+      <span class="muted small" style="align-self:center">4 analyst calls + 1 synthesis call.</span>
+    </div>
+  </form>
+
+  {% if result %}
+  <div class="card stack">
+    {% if result.crashed %}
+      <p class="small" style="color:var(--red)">{{ result.crashed }}</p>
+    {% else %}
+
+    <div class="grid grid-4">
+      {% for a in aspects %}
+      <div class="branch {% if not result.r.findings.get(a) %}empty{% endif %}">
+        <h4>{{ a }}{% if a == chosen_fail %} — forced failure{% endif %}</h4>
+        <span class="small">{{ result.r.findings.get(a) or '(no content received)' }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="row" style="justify-content:space-between;align-items:baseline">
+      <h3 style="margin:0">Synthesised report</h3>
+      {% if chosen_fail %}
+        {% if result.disclosed %}<span class="tag ok">disclosed the gap</span>
+        {% else %}<span class="tag no">reads as complete — no disclosure</span>{% endif %}
+      {% endif %}
+    </div>
+    <div class="report {% if result.reads_complete %}complete-lie{% endif %}">{{ result.r.report }}</div>
+    <p class="caption">Aspects represented in the report: {{ result.represented|join(', ') or 'none' }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+</div>
+</body>
+</html>

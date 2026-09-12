@@ -1,0 +1,53 @@
+[project]
+name = "langgraph-lab"
+version = "0.1.0"
+description = "Five LangGraph projects built around the failure each one is usually demoed past."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Muhammad Hammas" }]
+
+dependencies = [
+    "langgraph>=0.2.0",
+    "langchain-core>=0.3.0",
+    "langchain-ollama>=0.2.0",
+    "pydantic>=2.7",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "jinja2>=3.1",
+    "python-multipart>=0.0.9",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["shared", "projects"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# Data corpora are dialogue/prose, one item per line; wrapping would make them unreadable.
+"projects/*/corpus.py" = ["E501"]
+"projects/*/conversation.py" = ["E501"]
+"projects/*/scenarios.py" = ["E501"]
+"projects/*/tickets.py" = ["E501"]
+"projects/*/briefs.py" = ["E501"]
+"projects/*/cases.py" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+markers = [
+    "live: requires a running ollama server (deselect with '-m \"not live\"')",
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "strategy": "checkpointed",
+    "total_draft_calls": 6,
+    "total_finalize_calls": 3,
+    "per_scenario": [
+      {
+        "scenario": "s1",
+        "revision_rounds": 0,
+        "draft_calls": 1,
+        "finalize_calls": 1
+      },
+      {
+        "scenario": "s2",
+        "revision_rounds": 1,
+        "draft_calls": 2,
+        "finalize_calls": 1
+      },
+      {
+        "scenario": "s3",
+        "revision_rounds": 2,
+        "draft_calls": 3,
+        "finalize_calls": 1
+      }
+    ]
+  },
+  {
+    "strategy": "naive_requeue",
+    "total_draft_calls": 9,
+    "total_finalize_calls": 3,
+    "per_scenario": [
+      {
+        "scenario": "s1",
+        "revision_rounds": 0,
+        "draft_calls": 2,
+        "finalize_calls": 1
+      },
+      {
+        "scenario": "s2",
+        "revision_rounds": 1,
+        "draft_calls": 3,
+        "finalize_calls": 1
+      },
+      {
+        "scenario": "s3",
+        "revision_rounds": 2,
+        "draft_calls": 4,
+        "finalize_calls": 1
+      }
+    ]
+  }
+]

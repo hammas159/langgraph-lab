@@ -1,0 +1,452 @@
+[
+  {
+    "strategy": "single_pass",
+    "group": "clean",
+    "n": 6,
+    "correct": 6,
+    "escalated": 0,
+    "wrong_confident": 0,
+    "calls": 6,
+    "per_ticket": [
+      {
+        "ticket": "c1",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c2",
+        "primary": "technical",
+        "decision": "technical",
+        "correct": true,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "c3",
+        "primary": "account",
+        "decision": "account",
+        "correct": true,
+        "confidence": "MEDIUM",
+        "votes": [
+          "account"
+        ]
+      },
+      {
+        "ticket": "c4",
+        "primary": "general",
+        "decision": "general",
+        "correct": true,
+        "confidence": "MEDIUM",
+        "votes": [
+          "general"
+        ]
+      },
+      {
+        "ticket": "c5",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c6",
+        "primary": "technical",
+        "decision": "technical",
+        "correct": true,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      }
+    ]
+  },
+  {
+    "strategy": "single_pass",
+    "group": "cross_cutting",
+    "n": 6,
+    "correct": 2,
+    "escalated": 0,
+    "wrong_confident": 1,
+    "calls": 6,
+    "per_ticket": [
+      {
+        "ticket": "x1",
+        "primary": "billing",
+        "decision": "technical",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x2",
+        "primary": "account",
+        "decision": "billing",
+        "correct": false,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x3",
+        "primary": "technical",
+        "decision": "billing",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x4",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x5",
+        "primary": "billing",
+        "decision": "technical",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x6",
+        "primary": "account",
+        "decision": "account",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "strategy": "confidence_gate",
+    "group": "clean",
+    "n": 6,
+    "correct": 2,
+    "escalated": 4,
+    "wrong_confident": 0,
+    "calls": 6,
+    "per_ticket": [
+      {
+        "ticket": "c1",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c2",
+        "primary": "technical",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "c3",
+        "primary": "account",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "account"
+        ]
+      },
+      {
+        "ticket": "c4",
+        "primary": "general",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "general"
+        ]
+      },
+      {
+        "ticket": "c5",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c6",
+        "primary": "technical",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      }
+    ]
+  },
+  {
+    "strategy": "confidence_gate",
+    "group": "cross_cutting",
+    "n": 6,
+    "correct": 2,
+    "escalated": 3,
+    "wrong_confident": 1,
+    "calls": 6,
+    "per_ticket": [
+      {
+        "ticket": "x1",
+        "primary": "billing",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x2",
+        "primary": "account",
+        "decision": "billing",
+        "correct": false,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x3",
+        "primary": "technical",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x4",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x5",
+        "primary": "billing",
+        "decision": "review",
+        "correct": false,
+        "confidence": "MEDIUM",
+        "votes": [
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x6",
+        "primary": "account",
+        "decision": "account",
+        "correct": true,
+        "confidence": "HIGH",
+        "votes": [
+          "account"
+        ]
+      }
+    ]
+  },
+  {
+    "strategy": "multi_vote",
+    "group": "clean",
+    "n": 6,
+    "correct": 5,
+    "escalated": 0,
+    "wrong_confident": 0,
+    "calls": 18,
+    "per_ticket": [
+      {
+        "ticket": "c1",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "billing",
+          "billing",
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c2",
+        "primary": "technical",
+        "decision": "technical",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "technical",
+          "technical",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "c3",
+        "primary": "account",
+        "decision": "account",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "account",
+          "account",
+          "account"
+        ]
+      },
+      {
+        "ticket": "c4",
+        "primary": "general",
+        "decision": "technical",
+        "correct": false,
+        "confidence": "",
+        "votes": [
+          "general",
+          "technical",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "c5",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "billing",
+          "billing",
+          "billing"
+        ]
+      },
+      {
+        "ticket": "c6",
+        "primary": "technical",
+        "decision": "technical",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "technical",
+          "technical",
+          "technical"
+        ]
+      }
+    ]
+  },
+  {
+    "strategy": "multi_vote",
+    "group": "cross_cutting",
+    "n": 6,
+    "correct": 2,
+    "escalated": 1,
+    "wrong_confident": 0,
+    "calls": 18,
+    "per_ticket": [
+      {
+        "ticket": "x1",
+        "primary": "billing",
+        "decision": "technical",
+        "correct": false,
+        "confidence": "",
+        "votes": [
+          "technical",
+          "technical",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x2",
+        "primary": "account",
+        "decision": "billing",
+        "correct": false,
+        "confidence": "",
+        "votes": [
+          "billing",
+          "billing",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x3",
+        "primary": "technical",
+        "decision": "technical",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "billing",
+          "technical",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x4",
+        "primary": "billing",
+        "decision": "billing",
+        "correct": true,
+        "confidence": "",
+        "votes": [
+          "billing",
+          "billing",
+          "billing"
+        ]
+      },
+      {
+        "ticket": "x5",
+        "primary": "billing",
+        "decision": "technical",
+        "correct": false,
+        "confidence": "",
+        "votes": [
+          "technical",
+          "billing",
+          "technical"
+        ]
+      },
+      {
+        "ticket": "x6",
+        "primary": "account",
+        "decision": "review",
+        "correct": false,
+        "confidence": "",
+        "votes": [
+          "account",
+          "billing",
+          "technical"
+        ]
+      }
+    ]
+  }
+]

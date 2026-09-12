@@ -1,0 +1,8 @@
+{
+  "name": "langgraph-lab-screenshots",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only. Drives the apps in a real browser to capture the screenshots in README files. Not a runtime dependency of anything.",
+  "scripts": { "shoot": "node scripts/shoot.mjs" },
+  "devDependencies": { "playwright": "^1.63.0" }
+}

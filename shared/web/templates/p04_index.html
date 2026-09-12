@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does resuming re-run work that already happened?</title>
+<link rel="stylesheet" href="/static/design.css">
+<style>
+  .steps { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.4rem 0; }
+  .step { font-family: var(--mono); font-size: 0.82rem; padding: 0.3rem 0.6rem;
+          border-radius: var(--radius-sm); background: var(--surface-2);
+          border: 1px solid var(--border); }
+  .step.wasted { border-color: var(--red); color: var(--red);
+                 background: color-mix(in srgb, var(--red) 10%, var(--surface-2)); }
+  .arrow { color: var(--ink-3); align-self: center; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <h1>Does resuming re-run work that already happened?</h1>
+    <p>
+      Two ways to pause a LangGraph run for human approval: <code>interrupt()</code> with a
+      checkpointer, which genuinely suspends the graph, and a naive pattern that looks the same
+      from outside a single request but has no persisted state to resume from &mdash; so
+      "resuming" means re-invoking the whole graph and redoing the drafting step.
+    </p>
+  </div>
+</div>
+
+<div class="wrap stack">
+
+  {% if not server_up %}
+  <div class="card"><h3>ollama is not reachable</h3>
+    <p class="muted small">Start the server and reload.</p></div>
+  {% endif %}
+
+  <form method="post" action="/run" class="card">
+    <div class="grid grid-2">
+      <div class="field">
+        <label for="scenario_id">Scenario</label>
+        <select name="scenario_id" id="scenario_id">
+          {% for s in scenarios %}
+          <option value="{{ s.id }}" {% if chosen_scenario == s.id %}selected{% endif %}>
+            {{ s.id }} — {{ s.revision_rounds|length }} revision round(s)
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="model">Model</label>
+        <select name="model" id="model">
+          {% for m in models %}
+          <option value="{{ m }}" {% if chosen_model == m %}selected{% endif %}>{{ m }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="row" style="margin-top:1rem">
+      <button type="submit">Run both strategies</button>
+    </div>
+  </form>
+
+  {% if scenario %}
+  <div class="card">
+    <h3>{{ scenario.id }}</h3>
+    <p class="abstract-text">{{ scenario.request }}</p>
+    {% if scenario.revision_rounds %}
+    <p class="caption">Scripted reviewer feedback: {{ scenario.revision_rounds|join(' — then — ') }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  {% if result %}
+  {% if result.crashed %}
+    <div class="card"><p class="small" style="color:var(--red)">{{ result.crashed }}</p></div>
+  {% else %}
+  <div class="grid grid-2">
+    <div class="card stack">
+      <h3 style="margin:0">checkpointed</h3>
+      <div class="stat">
+        <span class="value good">{{ result.ck.draft_calls }}</span>
+        <span class="label">drafting calls</span>
+      </div>
+      <div class="steps">
+        {% for i in range(result.ck.draft_calls) %}
+        {% if i > 0 %}<span class="arrow">&rarr;</span>{% endif %}
+        <span class="step">draft {{ i + 1 }}</span>
+        {% endfor %}
+        <span class="arrow">&rarr;</span>
+        <span class="step">finalize</span>
+      </div>
+    </div>
+
+    <div class="card stack">
+      <h3 style="margin:0">naive_requeue</h3>
+      <div class="stat">
+        <span class="value bad">{{ result.nv.draft_calls }}</span>
+        <span class="label">drafting calls</span>
+        <span class="note">+{{ result.extra }} versus checkpointed</span>
+      </div>
+      <div class="steps">
+        {% for i in range(result.nv.draft_calls) %}
+        {% if i > 0 %}<span class="arrow">&rarr;</span>{% endif %}
+        <span class="step {% if loop.last %}wasted{% endif %}">draft {{ i + 1 }}{% if loop.last %} (wasted){% endif %}</span>
+        {% endfor %}
+        <span class="arrow">&rarr;</span>
+        <span class="step">finalize</span>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+
+</div>
+</body>
+</html>

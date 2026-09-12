@@ -1,0 +1,171 @@
+[
+  {
+    "strategy": "all_succeed",
+    "n": 4,
+    "mean_represented": 4.0,
+    "n_disclosed": 0,
+    "n_failed_runs": 0,
+    "n_reads_complete": 0,
+    "calls": 20,
+    "per_brief": [
+      {
+        "brief": "b1",
+        "fail_aspect": "",
+        "represented": [
+          "financial",
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": false
+      },
+      {
+        "brief": "b2",
+        "fail_aspect": "",
+        "represented": [
+          "financial",
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": false
+      },
+      {
+        "brief": "b3",
+        "fail_aspect": "",
+        "represented": [
+          "financial",
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": false
+      },
+      {
+        "brief": "b4",
+        "fail_aspect": "",
+        "represented": [
+          "financial",
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": false
+      }
+    ]
+  },
+  {
+    "strategy": "fail_silent",
+    "n": 4,
+    "mean_represented": 3.0,
+    "n_disclosed": 0,
+    "n_failed_runs": 4,
+    "n_reads_complete": 4,
+    "calls": 16,
+    "per_brief": [
+      {
+        "brief": "b1",
+        "fail_aspect": "financial",
+        "represented": [
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      },
+      {
+        "brief": "b2",
+        "fail_aspect": "technical",
+        "represented": [
+          "financial",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      },
+      {
+        "brief": "b3",
+        "fail_aspect": "market",
+        "represented": [
+          "financial",
+          "technical",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      },
+      {
+        "brief": "b4",
+        "fail_aspect": "team",
+        "represented": [
+          "financial",
+          "technical",
+          "market"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      }
+    ]
+  },
+  {
+    "strategy": "fail_flagged",
+    "n": 4,
+    "mean_represented": 3.0,
+    "n_disclosed": 2,
+    "n_failed_runs": 4,
+    "n_reads_complete": 2,
+    "calls": 16,
+    "per_brief": [
+      {
+        "brief": "b1",
+        "fail_aspect": "financial",
+        "represented": [
+          "technical",
+          "market",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      },
+      {
+        "brief": "b2",
+        "fail_aspect": "technical",
+        "represented": [
+          "financial",
+          "market",
+          "team"
+        ],
+        "disclosed": true,
+        "reads_complete": false
+      },
+      {
+        "brief": "b3",
+        "fail_aspect": "market",
+        "represented": [
+          "financial",
+          "technical",
+          "team"
+        ],
+        "disclosed": false,
+        "reads_complete": true
+      },
+      {
+        "brief": "b4",
+        "fail_aspect": "team",
+        "represented": [
+          "financial",
+          "technical",
+          "market"
+        ],
+        "disclosed": true,
+        "reads_complete": false
+      }
+    ]
+  }
+]

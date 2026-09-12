@@ -1,0 +1,368 @@
+[
+  {
+    "strategy": "fixed_1",
+    "n": 6,
+    "mean_score": 0.26666666666666666,
+    "mean_iterations": 0.0,
+    "mean_calls": 2.0,
+    "n_regressed": 0,
+    "n_lost_facts": 0,
+    "seconds": 7.05,
+    "per_task": [
+      {
+        "task": "t1",
+        "final_score": 0.4,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t2",
+        "final_score": 0.6,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t3",
+        "final_score": 0.0,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t4",
+        "final_score": 0.2,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.2
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t5",
+        "final_score": 0.0,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t6",
+        "final_score": 0.4,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      }
+    ]
+  },
+  {
+    "strategy": "fixed_3",
+    "n": 6,
+    "mean_score": 0.3666666666666667,
+    "mean_iterations": 3.0,
+    "mean_calls": 8.0,
+    "n_regressed": 0,
+    "n_lost_facts": 0,
+    "seconds": 9.04,
+    "per_task": [
+      {
+        "task": "t1",
+        "final_score": 0.4,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t2",
+        "final_score": 0.6,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t3",
+        "final_score": 0.0,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t4",
+        "final_score": 0.6,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.2,
+          0.4,
+          0.4,
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t5",
+        "final_score": 0.2,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.0,
+          0.0,
+          0.2,
+          0.2
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t6",
+        "final_score": 0.4,
+        "iterations": 3,
+        "calls": 8,
+        "trace": [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      }
+    ]
+  },
+  {
+    "strategy": "fixed_6",
+    "n": 6,
+    "mean_score": 0.3666666666666667,
+    "mean_iterations": 6.0,
+    "mean_calls": 14.0,
+    "n_regressed": 0,
+    "n_lost_facts": 0,
+    "seconds": 16.64,
+    "per_task": [
+      {
+        "task": "t1",
+        "final_score": 0.4,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t2",
+        "final_score": 0.6,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t3",
+        "final_score": 0.0,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t4",
+        "final_score": 0.6,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.2,
+          0.4,
+          0.4,
+          0.6,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t5",
+        "final_score": 0.2,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.0,
+          0.0,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t6",
+        "final_score": 0.4,
+        "iterations": 6,
+        "calls": 14,
+        "trace": [
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      }
+    ]
+  },
+  {
+    "strategy": "self_stop",
+    "n": 6,
+    "mean_score": 0.26666666666666666,
+    "mean_iterations": 0.0,
+    "mean_calls": 2.0,
+    "n_regressed": 0,
+    "n_lost_facts": 0,
+    "seconds": 2.21,
+    "per_task": [
+      {
+        "task": "t1",
+        "final_score": 0.4,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t2",
+        "final_score": 0.6,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.6
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t3",
+        "final_score": 0.0,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t4",
+        "final_score": 0.2,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.2
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t5",
+        "final_score": 0.0,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.0
+        ],
+        "regressed": false,
+        "lost_facts": []
+      },
+      {
+        "task": "t6",
+        "final_score": 0.4,
+        "iterations": 0,
+        "calls": 2,
+        "trace": [
+          0.4
+        ],
+        "regressed": false,
+        "lost_facts": []
+      }
+    ]
+  }
+]
