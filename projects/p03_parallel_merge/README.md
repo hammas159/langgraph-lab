@@ -1,4 +1,4 @@
-# 03 · The synthesis that reads as complete when a branch failed
+# 03 · The synthesis that reads as complete when a branch failed (LangGraph, LangChain, Ollama, FastAPI)
 
 **Every single silent branch failure produced a synthesis report covering all four aspects by
 name, with zero indication anything had gone wrong. Explicitly instructing the synthesis to

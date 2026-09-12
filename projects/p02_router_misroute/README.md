@@ -1,4 +1,4 @@
-# 02 · Does the router know when it's guessing?
+# 02 · Does the router know when it's guessing? (LangGraph, LangChain, Ollama, FastAPI)
 
 **Gating on the router's own confidence dropped accuracy on unambiguous tickets from 100% to
 33% — because the router is systematically *unconfident about tickets it gets right* and

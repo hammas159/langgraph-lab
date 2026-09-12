@@ -1,4 +1,4 @@
-# 05 · Does the constraint survive the handoff?
+# 05 · Does the constraint survive the handoff? (LangGraph, LangChain, Ollama, FastAPI)
 
 **Stripping the handoff down to just the customer's latest message dropped safety from 100% to
 20% — recommending eggs to a vegan customer and a hotel with no mention of wheelchair access

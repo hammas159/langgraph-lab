@@ -1,4 +1,4 @@
-# langgraph-lab
+# langgraph-lab (LangGraph, LangChain, Ollama, FastAPI)
 
 [![ci](https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)

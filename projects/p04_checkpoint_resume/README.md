@@ -1,4 +1,4 @@
-# 04 · Does resuming re-run work that already happened?
+# 04 · Does resuming re-run work that already happened? (LangGraph, LangChain, Ollama, FastAPI)
 
 **A "pause for approval" pattern that looks identical to LangGraph's real one from outside a
 single request cost 50% more drafting calls across three scenarios — one wasted call every

@@ -1,4 +1,4 @@
-# 01 · Does the revision loop actually converge?
+# 01 · Does the revision loop actually converge? (LangGraph, LangChain, Ollama, FastAPI)
 
 **Doubling the loop from 3 iterations to 6 produced zero additional improvement on every one
 of six tasks. Letting the critique node decide when to stop made it quit on the very first
