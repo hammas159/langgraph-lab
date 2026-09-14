@@ -1,20 +1,46 @@
-# langgraph-lab (LangGraph, LangChain, Ollama, FastAPI)
+<h1 align="center">langgraph-lab</h1>
+<p align="center"><i>One project per LangGraph shape, each built around the failure it is usually demoed past</i></p>
 
-[![ci](https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml)
-![python](https://img.shields.io/badge/python-3.11%2B-blue)
-![models](https://img.shields.io/badge/models-local%20via%20ollama-success)
-![api%20keys](https://img.shields.io/badge/API%20keys-none%20required-success)
-![license](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  <a href="#the-through-line">The through-line</a> &middot;
+  <a href="#projects">Projects</a> &middot;
+  <a href="#the-model-fleet">The model fleet</a> &middot;
+  <a href="#screenshots">Screenshots</a> &middot;
+  <a href="#what-this-repo-does-not-do">What it does NOT do</a> &middot;
+  <a href="#problems-hit-while-building-this">Problems hit</a>
+</p>
 
-**LangGraph projects built around the failure each one is usually demoed past.**
-
-Five projects, one per LangGraph-specific graph shape: a revision cycle, a supervisor router, a
-parallel fan-out, a human-in-the-loop checkpoint, and a multi-agent handoff. Every project runs
-entirely on local models through ollama — no API key, no hosted call, no cost.
+<p align="center">
+  <a href="https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml"><img src="https://github.com/hammas159/langgraph-lab/actions/workflows/ci.yml/badge.svg" alt="ci"></a>
+  <img src="https://img.shields.io/badge/python-3.11%2B-blue" alt="python">
+  <img src="https://img.shields.io/badge/models-local%20via%20ollama-success" alt="models">
+  <img src="https://img.shields.io/badge/API%20keys-none%20required-success" alt="api keys">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="license"></a>
+</p>
 
 ---
 
 ## The through-line
+
+```mermaid
+flowchart TD
+    A["five graph shapes"] --> B["revision cycle"]
+    A --> C["supervisor router"]
+    A --> D["parallel fan-out"]
+    A --> E["human-in-the-loop<br/>checkpoint"]
+    A --> F["multi-agent handoff"]
+    B --> G["each measured on<br/>its own failure mode"]
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+
+    style G fill:#2563eb,color:#fff
+```
+
+One project per LangGraph-specific shape, rather than five variations on the same graph.
+Every one runs on local models - no API key, no hosted call, no cost.
+
 
 Each project takes a graph shape LangGraph is demonstrated with, and asks what happens at the
 place the demo stops looking. None of the five findings were the one the project was built
@@ -187,6 +213,10 @@ Full accounts are in each project's README. Two that generalise past a single pr
   disconnected deserialised copy on every resume, silently under-counting real model calls.
   Call counters belong in a plain registry keyed by a checkpoint-safe string, never in the
   graph's own state.
+
+## Keywords
+
+LangGraph &middot; LangChain &middot; agent orchestration &middot; state machines &middot; multi-agent &middot; supervisor pattern &middot; human-in-the-loop &middot; checkpointing &middot; parallel agents &middot; agent handoff &middot; local LLM &middot; Ollama &middot; FastAPI &middot; LLM workflows &middot; graph-based agents &middot; reproducible evaluation
 
 ## License
 
