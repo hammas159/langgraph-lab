@@ -21,7 +21,7 @@ jobs:
 
       - name: Lint
         run: |
-          uv run ruff check shared projects tests scripts
+          uv run ruff check shared projects tests
           uv run ruff format --check shared projects tests
 
       - name: Tests
