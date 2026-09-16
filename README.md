@@ -69,7 +69,7 @@ checklist so "improved" is a number. Doubling the loop from 3 to 6 iterations pr
 iteration 3. Letting the critique node decide when to stop made it approve the very first
 draft as complete on **all six tasks**, behaving exactly like doing no revision at all.
 
-- **Stack:** `langgraph`, `langchain-ollama`, FastAPI + Jinja2
+- **Stack:** `langgraph`, `langchain-ollama`
 - **In:** a question, a stopping strategy
 - **Out:** the score after every iteration, so a plateau or regression is visible as a trace
 
@@ -81,7 +81,7 @@ confidence; on the one genuinely cross-cutting ticket, it was confidently wrong.
 confidence therefore made things worse, not better — accuracy on easy tickets fell from 100%
 to 33% while barely touching the hard case it was built for.
 
-- **Stack:** `langgraph`, `langchain-ollama`, FastAPI + Jinja2
+- **Stack:** `langgraph`, `langchain-ollama`
 - **In:** a support ticket, a dispatch strategy
 - **Out:** the routing decision, confidence, and — separately — whether the confidence gate
   actually removed the payload or the model just declined it on its own
@@ -94,7 +94,7 @@ report covered all four aspects by name with **zero disclosure** that one had fa
 Explicitly instructing the synthesis to flag gaps caught it in 2 of 4 cases — better than
 never, far from reliable.
 
-- **Stack:** `langgraph`, `langchain-ollama`, FastAPI + Jinja2
+- **Stack:** `langgraph`, `langchain-ollama`
 - **In:** a company brief, which branch (if any) is forced to fail
 - **Out:** every branch's finding beside the synthesised report, and whether the failure was
   disclosed
@@ -120,7 +120,7 @@ customer's latest message dropped it to **20%** — recommending eggs to a stric
 customer and a beach hotel with no mention of accessibility to someone who explicitly required
 a wheelchair-accessible stay.
 
-- **Stack:** `langgraph`, `langchain-ollama`, FastAPI + Jinja2
+- **Stack:** `langgraph`, `langchain-ollama`
 - **In:** a two-agent conversation, a handoff strategy
 - **Out:** what the specialist actually received, its response, and whether it stayed on
   topic **and** respected the constraint — scored separately, because a response that goes
@@ -151,8 +151,26 @@ ollama pull qwen2.5:3b-instruct
 
 make test           # 74 tests, no GPU and no ollama needed
 make bench           # regenerates every RESULTS.md from real graph runs
-make web01           # http://127.0.0.1:8111, and web02..web05 similarly
 ```
+
+---
+
+## Input / Output
+
+Project 01, the cheapest finding in the lab to act on.
+
+![input](docs/images/input.png)
+
+![output](docs/images/output.png)
+
+*Three iterations and six iterations produce the same score. The extra three revisions
+cost 75% more calls and bought zero points, and no run regressed, so the loop is not even
+trading accuracy for compute — it is simply idling.*
+
+*`self_stop` is the one to be careful with. It never revised at all: asked whether its own
+answer was finished, the model said yes every time. A self-terminating loop that always
+terminates immediately is indistinguishable from having no loop, and costs the same as
+one pass.*
 
 ## Layout
 
@@ -216,7 +234,7 @@ Full accounts are in each project's README. Two that generalise past a single pr
 
 ## Keywords
 
-LangGraph &middot; LangChain &middot; agent orchestration &middot; state machines &middot; multi-agent &middot; supervisor pattern &middot; human-in-the-loop &middot; checkpointing &middot; parallel agents &middot; agent handoff &middot; local LLM &middot; Ollama &middot; FastAPI &middot; LLM workflows &middot; graph-based agents &middot; reproducible evaluation
+LangGraph &middot; LangChain &middot; agent orchestration &middot; state machines &middot; multi-agent &middot; supervisor pattern &middot; human-in-the-loop &middot; checkpointing &middot; parallel agents &middot; agent handoff &middot; local LLM &middot; Ollama &middot; LLM workflows &middot; graph-based agents &middot; reproducible evaluation
 
 ## License
 

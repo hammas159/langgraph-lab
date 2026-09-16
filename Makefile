@@ -1,5 +1,5 @@
 .PHONY: install test test-live lint bench bench01 bench02 bench03 bench04 bench05 \
-        web01 web02 web03 web04 web05 shots models all
+        models all
 
 install:
 	uv sync --extra dev
@@ -31,20 +31,10 @@ bench04:
 bench05:
 	uv run python -m projects.p05_supervisor_handoff.benchmark
 
-web01:
-	uv run uvicorn projects.p01_revision_loops.web:app --reload --port 8111
 
-web02:
-	uv run uvicorn projects.p02_router_misroute.web:app --reload --port 8112
 
-web03:
-	uv run uvicorn projects.p03_parallel_merge.web:app --reload --port 8113
 
-web04:
-	uv run uvicorn projects.p04_checkpoint_resume.web:app --reload --port 8114
 
-web05:
-	uv run uvicorn projects.p05_supervisor_handoff.web:app --reload --port 8115
 
 shots:
 	npm install
