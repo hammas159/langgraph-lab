@@ -1,4 +1,4 @@
-<h1 align="center">langgraph-lab</h1>
+<h1 align="center">langgraph-lab (LangGraph · LangChain · Ollama · Pydantic)</h1>
 <p align="center"><i>One project per LangGraph shape, each built around the failure it is usually demoed past</i></p>
 
 <p align="center">
